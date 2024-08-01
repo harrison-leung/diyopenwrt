@@ -18,3 +18,12 @@ sed -i 's/192.168.1.1/192.168.50.1/g' package/base-files/files/bin/config_genera
 
 # Modify hostname
 #sed -i 's/OpenWrt/P3TERX-Router/g' package/base-files/files/bin/config_generate
+
+# DIY part 2: 删除同名软件包 (如果存在)
+rm -rf package/feeds/packages/OpenClash
+
+# add package openclash
+git clone https://github.com/vernesong/OpenClash package/OpenClash
+
+# 这里可以直接修改.config文件或使用make defconfig等工具生成默认配置后再修改
+echo 'CONFIG_PACKAGE_OpenClash=y' >>.config
