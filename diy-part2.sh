@@ -20,10 +20,10 @@ sed -i 's/192.168.1.1/192.168.50.1/g' package/base-files/files/bin/config_genera
 #sed -i 's/OpenWrt/P3TERX-Router/g' package/base-files/files/bin/config_generate
 
 # DIY part 2: 删除同名软件包 (如果存在)
-rm -rf package/feeds/packages/OpenClash
+rm -rf package/feeds/packages/luci-app-openclash
 
 # add package openclash
-git clone https://github.com/vernesong/OpenClash package/OpenClash
+git clone https://github.com/vernesong/OpenClash package/luci-app-openclash
 
 # 这里可以直接修改.config文件或使用make defconfig等工具生成默认配置后再修改
-echo 'CONFIG_PACKAGE_OpenClash=y' >>.config
+echo 'CONFIG_PACKAGE_luci-app-openclash=y' >>.config
