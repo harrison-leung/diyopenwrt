@@ -50,12 +50,25 @@ jobs:
         sudo mkdir -p /workdir
         sudo chown $USER:$GROUPS /workdir
 
+    - name: Set up build dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y build-essential libssl-dev libncurses5-dev zlib1g-dev gawk git gettext libzstd-dev lib32gcc1 lib32stdc++6 python3 ruby cmake llvm clang
+
     - name: Clone source code
       working-directory: /workdir
       run: |
         df -hT $PWD
-        git clone $REPO_URL -b $REPO_BRANCH openwrt
+        git clone https://github.com/openwrt/openwrt.git
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
+
+    - name: Add missing dependency (shadowsocks-libev-ss-local)
+      run: |
+        cd openwrt
+        echo "src-git helloworld https://github.com/fw876/helloworld" >> feeds.conf.default
+        ./scripts/feeds update helloworld
+        ./scripts/feeds install shadowsocks-libev-ss-local
+
 
     - name: Download and use precompiled toolchain
       run: |
