@@ -53,7 +53,7 @@ jobs:
     - name: Set up build dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y build-essential libssl-dev libncurses5-dev zlib1g-dev gawk git gettext libzstd-dev lib32gcc1 lib32stdc++6 python3 ruby cmake llvm clang
+        sudo apt-get install -y build-essential libssl-dev libncurses5-dev zlib1g-dev gawk git gettext libzstd-dev lib32gcc-s1 lib32stdc++6 python3 ruby cmake llvm clang
 
     - name: Clone source code
       working-directory: /workdir
