@@ -34,7 +34,7 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v23.05.2
+      uses: actions/checkout@mail
 
     - name: Initialization environment
       env:
