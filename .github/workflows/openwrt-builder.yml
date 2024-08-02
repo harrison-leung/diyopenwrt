@@ -64,7 +64,7 @@ jobs:
       working-directory: /workdir
       run: |
         df -hT $PWD
-        git clone https://github.com/openwrt/openwrt.git
+        git clone https://github.com/openwrt/openwrt.git v23.05.2
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
         cd openwrt
         git checkout v23.05.2
