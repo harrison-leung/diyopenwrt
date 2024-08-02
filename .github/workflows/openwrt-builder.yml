@@ -34,7 +34,7 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@mail
+      uses: actions/checkout@main
 
     - name: Initialization environment
       env:
@@ -64,7 +64,7 @@ jobs:
       working-directory: /workdir
       run: |
         df -hT $PWD
-        git clone https://github.com/openwrt/openwrt.git v23.05.2
+        git clone https://github.com/openwrt/openwrt.git
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
         cd openwrt
         git checkout v23.05.2
