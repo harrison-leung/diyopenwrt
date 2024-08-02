@@ -66,6 +66,8 @@ jobs:
         df -hT $PWD
         git clone https://github.com/openwrt/openwrt.git
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
+        cd openwrt
+        git checkout v23.05.2
 
     - name: Add missing dependency (shadowsocks-libev-ss-local)
       run: |
